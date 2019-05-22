@@ -2,7 +2,7 @@
 class UserController {
 
   static register(req, res) {
-    res.send('berhasil masuk user register');
+    res.render('user/register');
   }
 }
 
