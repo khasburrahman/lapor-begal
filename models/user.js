@@ -1,4 +1,4 @@
-const createHash = require('../helpers/model/createHash')
+const createHash = require('../helpers/createHash')
 
 'use strict';
 module.exports = (sequelize, DataTypes) => {
