@@ -11,7 +11,6 @@ class UserController {
     const { username, password } = req.body
     const hash = createHash(password)
     const context = {}
-    console.log(req.session);
     
 
     User.findOne({ where: { username, password: hash } })

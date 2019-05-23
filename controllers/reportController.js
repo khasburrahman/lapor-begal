@@ -25,10 +25,11 @@ class ReportController {
       }
     })
     .then((result) => {
-      let objReport = {
-        LocationId: result.id
-      }
-      Model.Report.create()
+      // let objReport = {
+      //   LocationId: result.id
+      // }
+      // Model.Report.create()
+      res.send(req.session);
     })
     .catch((err) => {
       req.flash('error', err.message);
