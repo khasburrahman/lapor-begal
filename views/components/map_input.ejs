@@ -7,7 +7,9 @@
     mapboxgl.accessToken = <%- `"${mapBoxAccessToken}"` %>
     let map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11'
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [<%= (locals.centerLong) ? centerLong : 106.84513 %>, <%= (locals.centerLat) ? centerLat : -6.21462 %>],
+        zoom: 11,
     });
     map.addControl(new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
@@ -21,5 +23,22 @@
             coordinate.value = `${longitude},${latitude}`
             return carmenGeoJSON.place_name
         }
-    }));
+    }))
+
+
+    <% if (locals.mapValues) mapValues.forEach(val => { 
+        let {color = '#3FB1CE', long, lat, location} = val
+        %>
+
+        let coord = ['<%= long %>', '<%= lat %>']
+        var popup = new mapboxgl.Popup()
+            .setLngLat(coord)
+            .setText(location)
+            .addTo(map)
+        
+        new mapboxgl.Marker({ color: '<%= color %>'})
+                .setLngLat(coord)
+                .setPopup(popup)
+                .addTo(map);
+    <% }) %>
 </script>
