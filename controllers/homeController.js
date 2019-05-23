@@ -9,8 +9,18 @@ class HomeController {
       }
     })
     .then((results) => {
+      results = results.map(res => {
+        return {
+          foto: res.foto,
+          deskripsi: res.deskripsi,
+          lokasi: (res.Location) ? res.Location.nama : '',
+        }
+      })
+      let coords = results.map(res => {
+        return res.Location
+      })
       res.render('home', {
-        results
+        results, coords
       });
     })
     .catch((err) => {
