@@ -7,8 +7,8 @@ let storage = cloudinaryStorage({
     folder: 'begal',
     allowedFormats: ['jpg', 'png'],
     filename: function (req, file, cb) {
-        console.log({file, req})
-        cb(undefined, 'my-file-name');
+        let filename = `${new Date().getTime()}-${Math.floor(Math.random() * 100000)}-${file.originalname}` 
+        cb(undefined, filename);
     }
 });
 

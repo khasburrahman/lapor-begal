@@ -17,7 +17,7 @@ class ReportController {
       if (!result) {
         let objLocation = {
           nama: req.body.nama,
-          koordinat: req.body.koordinat
+          koordinat: req.body.koordinat,
         }
         return Model.Location.create(objLocation)
       } else {
@@ -26,9 +26,12 @@ class ReportController {
     })
     .then((result) => {
       let objReport = {
-        LocationId: result.id
+        LocationId: result.id,
+        foto: req.file.secure_url
       }
       Model.Report.create()
+      req.flash('message', 'data berhasil ditambahkan')
+      res.redirect('/')
     })
     .catch((err) => {
       req.flash('error', err.message);
