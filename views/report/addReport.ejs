@@ -6,7 +6,7 @@
 <body>
   <%- include('../components/navbar') %>
   <h1 class="formHeader">Add Report</h1>
-  <form id="registerUser" action="/users/register" method="POST">
+  <form id="registerUser" enctype="multipart/form-data" action="/users/register" method="POST">
     <div class="form-group">
       <label for="location_name">Location:</label>
       <input list="locationDataList" hidden id='form-location' class="form-control" name="location_name">
