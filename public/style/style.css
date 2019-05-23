@@ -67,3 +67,7 @@ nav {
   align-items: center;
   margin-bottom: 10px;
 }
+
+.formHeader {
+  text-align: center;
+}
