@@ -32,7 +32,8 @@ class ReportController {
         let objReport = {
           LocationId: result.id,
           UserId: req.session.userId,
-          deskripsi: req.body.deskripsi
+          deskripsi: req.body.deskripsi,
+          foto: req.file.secure_url
         }
         Model.Report.create(objReport);
         req.flash('message', "berhasil menambahkan laporan")

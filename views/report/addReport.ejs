@@ -8,7 +8,7 @@
   <%- include('../components/error') %>
   <%- include('../components/message') %>
   <h1 class="formHeader">Add Report</h1>
-  <form id="registerUser" action="/reports/addReport" method="POST">
+  <form id="registerUser" enctype="multipart/form-data" action="/reports/addReport" method="POST">
     <div class="form-group">
       <label for="nama">Location:</label>
       <input list="locationDataList" hidden id='form-location' class="form-control" name="nama">
