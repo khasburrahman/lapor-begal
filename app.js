@@ -7,6 +7,9 @@ const port = 3000;
 const sessionConfig = require('./config/session')
 const userRouter = require('./routes/userRouter');
 
+app.use('/public', express.static(__dirname + '/public'));
+app.use(express.urlencoded({ extended: true }));
+
 app.set("view engine", "ejs")
 app.use(express.urlencoded({extended: true}))
 app.use(session(sessionConfig))
