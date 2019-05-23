@@ -1,0 +1,32 @@
+<script>
+    function createCard(target, id, report){
+        let {foto, deskripsi, lokasi, foto} = report
+
+        let p = document.createElement('p')
+        p.innerHTML = deskripsi
+        p.classList.add('card-text')
+
+        let h5 = document.createElement('h5')
+        h5.innerHTML = lokasi
+        h5.classList.add('card-title')
+
+        let cardBody = document.createElement('div')
+        cardBody.classList.add('card-body')
+        cardBody.appendChild(h5)
+        cardBody.appendChild(p)
+
+        let fotoLokasi = document.createElement('div')
+        fotoLokasi.classList.add('fotoLokasi')
+        fotoLokasi.style.backgroundColor = foto
+
+        let card = document.createElement('div')
+        card.id = id
+        card.classList.add('card')
+        card.classList.add('customCard')
+        card.classList.add('reportCard')
+        card.appendChild(fotoLokasi)
+        card.appendChild(cardBody)
+
+        target.appendChild(card)
+    }
+</script>
