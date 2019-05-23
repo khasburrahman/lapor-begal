@@ -16,6 +16,8 @@ app.use(session(sessionConfig))
 app.use(flash({ locals: 'msg' }))
 
 app.use('/users', userRouter);
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => {
+  res.render('home');
+})
 
 app.listen(process.env.PORT || 5000, () => console.log(`Example app listening on port ${port}!`))
