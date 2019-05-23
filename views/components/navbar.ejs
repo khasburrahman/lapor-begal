@@ -7,14 +7,21 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            <% if (user) { %>
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/reports">My Report List <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/reports/">Report List <span class="sr-only">(current)</span></a>
-            </li>
+            <% } %>
         </ul>
-        <a href="/users/login">Login |</a>
-        <a href="/users/register">| Register</a>
+
+
+        <div class="pull-right">
+            <% if (user === null) { %>
+            <a href="/users/login">Login &nbsp; &nbsp;</a>
+            <a href="/users/register"> Register</a>
+            <% } else { %>
+            <p><%= user.userName %> &nbsp; &nbsp; <a href="/users/logout">Logout</a></p>
+            <% } %>
+        </div>
     </div>
 </nav>
