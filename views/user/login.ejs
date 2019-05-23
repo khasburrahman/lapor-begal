@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../components/header', {title: "Register User"}) %>
+
+<body>
+    <%- include('../components/navbar') %>
+    <div class="container">
+        <div class="card">
+            <article class="card-body">
+                <a href="" class="float-right btn btn-outline-primary">Sign up</a>
+                <h4 class="card-title mb-4 mt-1">Sign in</h4>
+                <form method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input name="username" class="form-control" placeholder="your username">
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                        <label for="password">Your password</label>
+                        <input class="form-control" name="password" placeholder="******" type="password">
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> Login </button>
+                    </div> <!-- form-group// -->
+                </form>
+            </article>
+        </div> <!-- card.// -->
+    </div>
+
+
+    <%- include('../components/script') %>
+</body>
+
+</html>
