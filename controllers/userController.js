@@ -23,7 +23,7 @@ class UserController {
         }
       })
       .catch(err => {
-        req.flash('error', err)
+        req.flash('error', err.toString())
         res.redirect('/users/login')
       })
   }
@@ -47,7 +47,7 @@ class UserController {
         res.redirect('/')
       })
       .catch(function (err) {
-        req.flash('error', err)
+        req.flash('error', err.toString())
         res.redirect('/users/register')
       })
   }

@@ -1,0 +1,39 @@
+<div id='map' style='width: auto; height: 500px;'></div>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.3.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet'
+    href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.3.0/mapbox-gl-geocoder.css'
+    type='text/css' />
+<script>
+    mapboxgl.accessToken = <%- `"${mapBoxAccessToken}"` %>
+    let map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11'
+    });
+    map.addControl(new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+        getItemValue(carmenGeoJSON){
+            const coordinate = document.getElementById('form-coordinate')
+            const location = document.getElementById('form-location')
+
+            const [longitude, latitude] = carmenGeoJSON.geometry.coordinates
+            location.value = carmenGeoJSON.place_name
+            coordinate.value = `${longitude},${latitude}`
+            return carmenGeoJSON.place_name
+        }
+    }));
+
+    var navigationSelect = document.getElementById("nav");
+
+        //Navigate to URL when select box is changed
+        var navigateToValue = function () {
+            window.location = this.value;
+        }
+
+        //Send analytics data
+        var sendAnalytics = function () {
+            //Placeholder
+        }
+
+        navigateToValue.addEventListener("onchange", navigateToValue)
+</script>

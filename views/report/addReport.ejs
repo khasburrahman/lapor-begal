@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../components/header', {title: "Register User"}) %>
+<%- include('../components/header', {title: "Register User", map: true}) %>
 
 <body>
   <%- include('../components/navbar') %>
   <h1 class="formHeader">Add Report</h1>
   <form id="registerUser" action="/users/register" method="POST">
     <div class="form-group">
-      <label for="nama">Lokasi:</label>
-      <input list="locationDataList" class="form-control" name="nama">
-      <datalist id="locationDataList">
-        <option value="Pondok Indah">
-        <option value="Pondok Pinang">
-        <option value="Radio Dalam">
-        <option value="Blok M">
-        <option value="Senayan">
-      </datalist>
+      <label for="location_name">Location:</label>
+      <input list="locationDataList" hidden id='form-location' class="form-control" name="location_name">
+    </div>
+    <%- include('../components/map_input') %>
+    <div class="form-group">
+      <label for="coordinate">Coordinate:</label>
+      <input disabled id='form-coordinate' class="form-control" name="coordinate">
     </div>
     <div class="form-group">
       <label for="deskripsi">Description</label>
