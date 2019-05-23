@@ -43,10 +43,12 @@ class UserController {
     }
     User.create(obj)
       .then(function (data) {
-        res.send('berhasil register user')
+        req.flash('message', 'berhasil register user ' + data.username)
+        res.redirect('/')
       })
       .catch(function (err) {
-        res.send(err.message);
+        req.flash('error', err)
+        res.redirect('/users/register')
       })
   }
 
