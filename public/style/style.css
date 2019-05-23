@@ -71,3 +71,20 @@ nav {
 .formHeader {
   text-align: center;
 }
+
+
+/*----------------- REPORT LIST -----------------*/
+
+#reportListHeader {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.reportCard {
+  margin: 0 auto;
+  width: 35%;
+}
+
+.deleteLaporan {
+  float: right;
+}
