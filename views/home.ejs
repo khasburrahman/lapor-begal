@@ -10,8 +10,11 @@
   <div class="konteiner">
     <div class="cardHeader">
       <h5 id="headerTerdekat">Terdekat ></h5>
+      <% if (user !== null) { %>
       <form action="/reports/addReport" method="GET">
-        <button type="submit" class="addLaporan btn btn-danger">Tambah Laporan</button></form>
+        <button type="submit" class="addLaporan btn btn-danger">Tambah Laporan</button>
+      </form>
+      <% } %>
     </div>
     <div id="terdekat">
       <%for (const report of results) {%>
@@ -23,8 +26,12 @@
             <p class="card-text card-text">Deskripsi: <%= report.deskripsi%></p>
           </div>
         </div>
-        <%}%>
-
+      <%}%>
+      <% if (results.length === 0) { %>
+        <div >
+          Tidak ada data
+        </div>
+      <% } %>  
     </div>
   </div>
 </body>
