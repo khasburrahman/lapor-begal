@@ -8,6 +8,10 @@ class ReportController {
   static showList(req, res) {
     res.render('report/home');
   }
+
+  static update(req, res) {
+    res.render('report/edit');
+  }
 }
 
 module.exports = ReportController;
