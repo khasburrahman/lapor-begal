@@ -18,12 +18,13 @@ class UserController {
           context.msg = "berhasil login sebagai "+user.username
           res.render('user/login', context)
         } else {
-          throw 'username / password is invalid'
+          req.flash('error', 'username / password is invalid')
+          res.redirect('/users/login')
         }
       })
-      .err(err => {
-        context.err = err
-        res.render('user/login', context)
+      .catch(err => {
+        req.flash('error', err)
+        res.redirect('/users/login')
       })
   }
 
