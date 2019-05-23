@@ -5,6 +5,7 @@ const uploadStorage = require('../helpers/uploadParser')
 
 router.get('/', ReportController.showList);
 router.get('/addReport', ReportController.addReport);
+router.post('/addReport', ReportController.create);
 router.get('/edit', ReportController.update);
 
 module.exports = router;

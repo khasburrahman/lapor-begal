@@ -5,16 +5,18 @@
 
 <body>
   <%- include('../components/navbar') %>
+  <%- include('../components/error') %>
+  <%- include('../components/message') %>
   <h1 class="formHeader">Add Report</h1>
   <form id="registerUser" enctype="multipart/form-data" action="/users/register" method="POST">
     <div class="form-group">
-      <label for="location_name">Location:</label>
-      <input list="locationDataList" hidden id='form-location' class="form-control" name="location_name">
+      <label for="nama">Location:</label>
+      <input list="locationDataList" hidden id='form-location' class="form-control" name="nama">
     </div>
     <%- include('../components/map_input') %>
     <div class="form-group">
-      <label for="coordinate">Coordinate:</label>
-      <input disabled id='form-coordinate' class="form-control" name="coordinate">
+      <label for="koordinat">Coordinate:</label>
+      <input readonly id='form-coordinate' class="form-control" name="koordinat">
     </div>
     <div class="form-group">
       <label for="deskripsi">Description</label>

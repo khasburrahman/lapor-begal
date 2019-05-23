@@ -11,11 +11,17 @@ class UserController {
     const { username, password } = req.body
     const hash = createHash(password)
     const context = {}
+    console.log(req.session);
+    
 
     User.findOne({ where: { username, password: hash } })
       .then(user => {
         if (user) {
+          req.session.userId = user.id;
+          req.session.userName = user.username;
+          req.session.save();
           req.flash('message', "berhasil login sebagai " + user.username)
+          // res.send(req.session);
           res.render('user/login', context)
         } else {
           req.flash('error', 'username / password is invalid')
