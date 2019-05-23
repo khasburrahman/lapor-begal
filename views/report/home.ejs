@@ -8,24 +8,21 @@
   <%- include('../components/error') %>
   <%- include('../components/message') %>
   <h1 id="reportListHeader">Daftar Laporan</h1>
-  <%for (const report of results) {%>
-  <div class="card customCard reportCard">
-    <div class="fotoLokasi">
-    </div>
-    <div class="card-body">
-      <h5 class="card-title"><a href="/reports/<%= report.id%>/edit">Lokasi: <%= report.Location.nama %></a></h5>
-      <p class="card-text card-text">Deskripsi: <%= report.deskripsi%></p>
-      <form action="/reports/<%= report.id%>/delete" method="POST">
-        <button type="submit" class="deleteLaporan btn btn-danger">Hapus Laporan</button>
-      </form>
-    </div>
-  </div>
-  <%}%>
+  <div id="listreport-abcd"></div>
+  
   <% if (results.length === 0) { %>
-  <div>
-    Tidak ada data
-  </div>
+    <div>
+      Tidak ada data
+    </div>
   <% } %>
+
+  <%- include('../components/cardGenerator') %>
+  <script>
+    let listReport = document.getElementById('listreport-abcd')
+      <% results.forEach((report, i) => {%>
+        createCard(listReport, <%= i %>, <%- JSON.stringify(report) %>)
+      <% }) %>
+  </script>
   <%- include('../components/script') %>
 </body>
 
