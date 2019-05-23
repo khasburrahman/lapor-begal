@@ -15,7 +15,7 @@ class UserController {
     User.findOne({where:{username, password: hash}})
       .then(user => {
         if (user) {
-          context.msg = "berhasil login sebagai "+user.username
+          req.flash('message', "berhasil login sebagai "+user.username) 
           res.render('user/login', context)
         } else {
           req.flash('error', 'username / password is invalid')
