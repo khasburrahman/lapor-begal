@@ -5,7 +5,6 @@ const app = express();
 const port = 3000;
 
 const sessionConfig = require('./config/session')
-const addStdContext = require('./middlewares/addStdContext')
 const userRouter = require('./routes/userRouter');
 
 app.set("view engine", "ejs")
