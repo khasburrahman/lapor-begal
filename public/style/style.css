@@ -57,6 +57,13 @@ nav {
   width: 100%;
 }
 
-.card {
+.customCard {
   width: 23%;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
