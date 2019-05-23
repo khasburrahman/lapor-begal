@@ -8,6 +8,7 @@ const sessionConfig = require('./config/session');
 const userRouter = require('./routes/userRouter');
 const reportRouter = require('./routes/reportRouter');
 const locationRouter = require('./routes/locationRouter');
+const homeController = require('./controllers/homeController');
 
 app.use('/public', express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }));
@@ -20,8 +21,6 @@ app.use(flash({ locals: 'msg' }))
 app.use('/users', userRouter);
 app.use('/reports', reportRouter);
 app.use('/locations', locationRouter);
-app.get('/', (req, res) => {
-  res.render('home');
-})
+app.get('/', homeController.show);
 
 app.listen(process.env.PORT || 5000, () => console.log(`Example app listening on port ${port}!`))

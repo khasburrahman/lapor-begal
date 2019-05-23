@@ -20,8 +20,7 @@ class UserController {
           req.session.userName = user.username;
           req.session.save();
           req.flash('message', "berhasil login sebagai " + user.username)
-          // res.send(req.session);
-          res.render('user/login', context)
+          res.redirect('/')
         } else {
           req.flash('error', 'username / password is invalid')
           res.redirect('/users/login')

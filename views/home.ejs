@@ -5,94 +5,26 @@
 
 <body>
   <%- include('./components/navbar') %>
+  <%- include('./components/error') %>
+  <%- include('./components/message') %>
   <div class="konteiner">
     <div class="cardHeader">
       <h5 id="headerTerdekat">Terdekat ></h5>
-      <button type="button" class="addLaporan btn btn-danger">Tambah Laporan</button>
+      <form action="/reports/addReport" method="GET">
+        <button type="submit" class="addLaporan btn btn-danger">Tambah Laporan</button></form>
     </div>
     <div id="terdekat">
-      <div class="card customCard">
-        <div class="fotoLokasi">
+      <%for (const report of results) {%>
+        <div class="card customCard reportCard">
+          <div class="fotoLokasi">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Lokasi: <%= report.Location.nama %></h5>
+            <p class="card-text card-text">Deskripsi: <%= report.deskripsi%></p>
+          </div>
         </div>
-        <div class="card-body">
-          <h5 class="card-title">Lokasi:</h5>
-          <p class="card-text card-text">Deskripsi:</p>
-          <p class="card-text card-content">Tanggal:</p>
-        </div>
-      </div>
-      <div class="card customCard">
-        <div class="fotoLokasi">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Lokasi:</h5>
-          <p class="card-text card-text">Deskripsi:</p>
-          <p class="card-text card-content">Tanggal:</p>
-        </div>
-      </div>
-      <div class="card customCard">
-        <div class="fotoLokasi">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Lokasi:</h5>
-          <p class="card-text card-text">Deskripsi:</p>
-          <p class="card-text card-content">Tanggal:</p>
-        </div>
-      </div>
-      <div class="card customCard">
-        <div class="fotoLokasi">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Lokasi:</h5>
-          <p class="card-text card-text">Deskripsi:</p>
-          <p class="card-text card-content">Tanggal:</p>
-        </div>
-      </div>
-    </div>
-  </div>
+        <%}%>
 
-  <div class="konteiner">
-    <div class="cardHeader">
-      <h5 id="headerTerkini">Terkini ></h5>
-      <button type="button" class="addLaporan btn btn-danger">Tambah Laporan</button>
-    </div>
-    <div id="terdekat">
-      <div class="card customCard">
-        <div class="fotoLokasi">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Lokasi:</h5>
-          <p class="card-text card-text">Deskripsi:</p>
-          <p class="card-text card-content">Tanggal:</p>
-        </div>
-      </div>
-      <div class="card customCard">
-        <div class="fotoLokasi">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Lokasi:</h5>
-          <p class="card-text card-text">Deskripsi:</p>
-          <p class="card-text card-content">Tanggal:</p>
-
-        </div>
-      </div>
-      <div class="card customCard">
-        <div class="fotoLokasi">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Lokasi:</h5>
-          <p class="card-text card-text">Deskripsi:</p>
-          <p class="card-text card-content">Tanggal:</p>
-        </div>
-      </div>
-      <div class="card customCard">
-        <div class="fotoLokasi">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Lokasi:</h5>
-          <p class="card-text card-text">Deskripsi:</p>
-          <p class="card-text card-content">Tanggal:</p>
-        </div>
-      </div>
     </div>
   </div>
 </body>

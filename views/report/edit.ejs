@@ -6,21 +6,17 @@
 <body>
   <%- include('../components/navbar') %>
   <h1 class="formHeader">Edit Report</h1>
-  <form id="registerUser" action="/users/register" method="POST">
+  <form id="registerUser" action="/reports/<%= report.id %>/edit" method="POST">
     <div class="form-group">
-      <label for="nama">Lokasi:</label>
-      <input list="locationDataList" class="form-control" name="nama">
-      <datalist id="locationDataList">
-        <option value="Pondok Indah">
-        <option value="Pondok Pinang">
-        <option value="Radio Dalam">
-        <option value="Blok M">
-        <option value="Senayan">
-      </datalist>
+      <input list="locationDataList" hidden id='form-location' class="form-control" name="nama">
+    </div>
+    <div class="form-group">
+      <label for="koordinat">Lokasi:</label>
+      <input list="locationDataList" class="form-control" name="koordinat" value="<%= report.Location.koordinat%>">
     </div>
     <div class="form-group">
       <label for="deskripsi">Description</label>
-      <textarea class="form-control" name="deskripsi" rows="5" id="comment"></textarea>
+      <textarea class="form-control" name="deskripsi" rows="5" id="deskripsi"><%= report.deskripsi%></textarea>
     </div>
     <div class="form-group">
       <label for="foto">Upload Photo</label>
