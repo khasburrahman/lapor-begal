@@ -1,3 +1,5 @@
+const createHash = require('../helpers/createHash')
+
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
@@ -7,6 +9,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = function(models) {
     // associations can be defined here
+    User.hasMany(models.Report);
   };
+
+  User.addHook('beforeCreate', 'hashPassword', (user) => {
+    user.password = createHash(user.password)
+  })
+
   return User;
 };
