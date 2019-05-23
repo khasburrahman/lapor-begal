@@ -33,7 +33,7 @@ class ReportController {
           LocationId: result.id,
           UserId: req.session.userId,
           deskripsi: req.body.deskripsi,
-          foto: req.file.secure_url
+          foto: (req.file) ? req.file.secure_url : ''
         }
         Model.Report.create(objReport);
         req.flash('message', "berhasil menambahkan laporan")
@@ -62,7 +62,7 @@ class ReportController {
       })
       .catch((err) => {
         req.flash('error', err.message);
-        res.redirect('/reports');
+        res.render('report/home');
       })
   }
 

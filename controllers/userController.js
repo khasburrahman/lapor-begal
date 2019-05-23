@@ -32,18 +32,24 @@ class UserController {
       })
   }
 
+  static logout(req, res) {
+    req.session.destroy()
+    req.flash("message", 'kamu sudah logout')
+    res.redirect('/')
+  }
+
   static getLogin(req, res) {
     res.render('user/login')
   }
 
   static register(req, res) {
-    let { username, password, nama, foto } = req.body
+    let { username, password, nama } = req.body
 
     let obj = {
       username,
       password,
       nama,
-      foto
+      foto: (req.file) ? req.file.secure_url : ''
     }
     User.create(obj)
       .then(function (data) {
