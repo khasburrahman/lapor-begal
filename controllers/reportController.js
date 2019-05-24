@@ -46,16 +46,9 @@ class ReportController {
   }
 
   static showList(req, res) {
-
-    Model.Report.findAll({
-        where: {
-          UserId: req.session.userId
-        },
-        include: {
-          model: Model.Location
-        }
-      })
+    Model.Report.getReportbyUserId(req.session.userId, Model.Location)
       .then((_results) => {
+        console.log(_results)
         let results = _results.map(res => {
           return {
             foto: res.foto,
