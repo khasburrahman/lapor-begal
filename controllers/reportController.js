@@ -83,7 +83,8 @@ class ReportController {
       })
       .then((report) => {
         res.render('report/edit', {
-          report
+          report,
+          mapBoxAccessToken: process.env.API_MAPBOX_KEY
         });
       })
       .catch((err) => {

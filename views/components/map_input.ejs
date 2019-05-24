@@ -11,10 +11,12 @@
         center: [<%= (locals.centerLong) ? centerLong : 106.84513 %>, <%= (locals.centerLat) ? centerLat : -6.21462 %>],
         zoom: 11,
     });
+
+    <% if (locals.disableControl === undefined) { %>
     map.addControl(new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl,
-        getItemValue(carmenGeoJSON){
+        getItemValue(carmenGeoJSON) {
             const coordinate = document.getElementById('form-coordinate')
             const location = document.getElementById('form-location')
 
@@ -24,13 +26,16 @@
             return carmenGeoJSON.place_name
         }
     }))
+    <% } %>
+    
 
 
     <% if (locals.mapValues) mapValues.forEach(val => { 
-        let {color = '#3FB1CE', long, lat, location} = val
+        let {color = '#3FB1CE', coord, location} = val
+        coord = coord.split(',')
         %>
 
-        let coord = ['<%= long %>', '<%= lat %>']
+        let coord = <%- JSON.stringify(coord) %>
         var popup = new mapboxgl.Popup()
             .setLngLat(coord)
             .setText(location)
