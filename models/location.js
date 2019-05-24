@@ -4,6 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     nama: DataTypes.STRING,
     koordinat: DataTypes.STRING
   }, {});
+
+  Location.prototype.splitKoordinat = function () {
+    return this.koordinat.split(',');
+  };
+
   Location.associate = function(models) {
     // associations can be defined here
     Location.hasMany(models.Report);
