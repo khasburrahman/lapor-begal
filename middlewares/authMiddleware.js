@@ -1,5 +1,6 @@
 module.exports = (req, res, next) =>  {
     let publicPath = [
+        '',
         '/',
         '/users/register'
     ]

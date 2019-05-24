@@ -55,16 +55,16 @@ class ReportController {
           model: Model.Location
         }
       })
-      .then((results) => {
-        results = results.map(res => {
+      .then((_results) => {
+        let results = _results.map(res => {
           return {
             foto: res.foto,
             deskripsi: res.deskripsi,
             lokasi: (res.Location) ? res.Location.nama : '',
           }
         })
-        let coords = results.map(res => {
-          return res.Location
+        let coords = _results.map(res => {
+          return res.Location.koordinat
         })
         res.render('report/home', {
           results, coords

@@ -17,16 +17,7 @@
       <% } %>
     </div>
     <div id="terdekat">
-      <%for (const report of results) {%>
-        <div class="card customCard reportCard">
-          <div class="fotoLokasi">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Lokasi: <%= report.Location.nama %></h5>
-            <p class="card-text card-text">Deskripsi: <%= report.deskripsi%></p>
-          </div>
-        </div>
-      <%}%>
+      <div id="listreport-abcd"></div>
       <% if (results.length === 0) { %>
         <div >
           Tidak ada data
@@ -34,6 +25,13 @@
       <% } %>  
     </div>
   </div>
+  <%- include('components/cardGenerator') %>
+  <script>
+    let listReport = document.getElementById('listreport-abcd')
+      <% results.forEach((report, i) => {%>
+        createCard(listReport, <%= i %>, <%- JSON.stringify(report) %>)
+      <% }) %>
+  </script>
 </body>
 
 </html>
