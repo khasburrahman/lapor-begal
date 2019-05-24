@@ -14,6 +14,7 @@ class HomeController {
           foto: res.foto,
           deskripsi: res.deskripsi,
           lokasi: (res.Location) ? res.Location.nama : '',
+          koordinat: res.Location.koordinat
         }
       })
       let coords = _results.map(res => {

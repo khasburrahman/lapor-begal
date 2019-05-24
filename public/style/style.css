@@ -44,7 +44,7 @@ nav {
 }
 
 /*----------------- HOMEPAGE -----------------*/
-#terdekat {
+.terdekat {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,6 +83,7 @@ nav {
 .reportCard {
   margin: 0 auto;
   width: 35%;
+  min-height: 500px;
 }
 
 .deleteLaporan {

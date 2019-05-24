@@ -16,18 +16,17 @@
       </form>
       <% } %>
     </div>
-    <div id="terdekat">
-      <div id="listreport-abcd"></div>
+      <div id="listreport-abcd" class="terdekat"></div>
       <% if (results.length === 0) { %>
         <div >
           Tidak ada data
         </div>
       <% } %>  
-    </div>
   </div>
   <%- include('components/cardGenerator') %>
   <script>
     let listReport = document.getElementById('listreport-abcd')
+    let results = <%- JSON.stringify(results) %>
       <% results.forEach((report, i) => {%>
         createCard(listReport, <%= i %>, <%- JSON.stringify(report) %>)
       <% }) %>
