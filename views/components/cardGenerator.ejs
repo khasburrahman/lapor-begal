@@ -8,11 +8,20 @@
 
         let buttonDelet = document.createElement('button')
         buttonDelet.classList.add('btn-danger')
+        buttonDelet.classList.add('btn')
+        buttonDelet.classList.add('deletLaporan')
+        buttonDelet.innerHTML = 'Hapus Laporan'
+
+        let form = document.createElement('form')
+        form.action = '/reports/'+report.id+'/delete'
+        form.method = 'POST'
+
+        form.appendChild(buttonDelet)
         
         let h5 = document.createElement('h5')
         if (edit) {
             let linkEdit = document.createElement('a')
-            linkEdit.href = `/reports/${id}/edit`
+            linkEdit.href = `/reports/${report.id}/edit`
             linkEdit.innerHTML = lokasi
             h5.appendChild(linkEdit)
         } else {
@@ -24,7 +33,6 @@
         cardBody.classList.add('card-body')
         cardBody.appendChild(h5)
         cardBody.appendChild(p)
-        cardB
 
         let fotoLokasi = document.createElement('div')
         fotoLokasi.classList.add('fotoLokasi')
@@ -37,6 +45,9 @@
         card.classList.add('reportCard')
         card.appendChild(fotoLokasi)
         card.appendChild(cardBody)
+        if (edit) {
+            card.appendChild(form)
+        }
 
         target.appendChild(card)
     }

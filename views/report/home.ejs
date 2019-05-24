@@ -20,7 +20,7 @@
   <script>
     let listReport = document.getElementById('listreport-abcd')
       <% results.forEach((report, i) => {%>
-        createCard(listReport, <%= i %>, <%- JSON.stringify(report) %>)
+        createCard(listReport, <%= i %>, <%- JSON.stringify(report) %>, true)
       <% }) %>
   </script>
   <%- include('../components/script') %>
