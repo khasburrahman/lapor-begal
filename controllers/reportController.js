@@ -61,6 +61,7 @@ class ReportController {
             foto: res.foto,
             deskripsi: res.deskripsi,
             lokasi: (res.Location) ? res.Location.nama : '',
+            id: res.id
           }
         })
         let coords = _results.map(res => {

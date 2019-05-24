@@ -1,19 +1,30 @@
 <script>
-    function createCard(target, id, report){
+    function createCard(target, id, report, edit= false){
         let {foto, deskripsi, lokasi} = report
 
         let p = document.createElement('p')
         p.innerHTML = deskripsi
         p.classList.add('card-text')
 
+        let buttonDelet = document.createElement('button')
+        buttonDelet.classList.add('btn-danger')
+        
         let h5 = document.createElement('h5')
-        h5.innerHTML = lokasi
+        if (edit) {
+            let linkEdit = document.createElement('a')
+            linkEdit.href = `/reports/${id}/edit`
+            linkEdit.innerHTML = lokasi
+            h5.appendChild(linkEdit)
+        } else {
+            h5.innerHTML = lokasi
+        }
         h5.classList.add('card-title')
 
         let cardBody = document.createElement('div')
         cardBody.classList.add('card-body')
         cardBody.appendChild(h5)
         cardBody.appendChild(p)
+        cardB
 
         let fotoLokasi = document.createElement('div')
         fotoLokasi.classList.add('fotoLokasi')
