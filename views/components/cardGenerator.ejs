@@ -36,7 +36,9 @@
 
         let fotoLokasi = document.createElement('div')
         fotoLokasi.classList.add('fotoLokasi')
-        fotoLokasi.style.backgroundColor = foto
+        if (foto){
+            fotoLokasi.style.background = `url("${foto}")`
+        }
 
         let card = document.createElement('div')
         card.id = 'cardreport-'+id
